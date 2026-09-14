@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Зачёт">
+<title>Зачёт по темам 1.4–1.6</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjM2IiBmaWxsPSIjMjU2M2ViIi8+PHBhdGggZD0iTTU2IDM0aDcybDM2IDM2djgwYTEyIDEyIDAgMCAxLTEyIDEySDU2YTEyIDEyIDAgMCAxLTEyLTEyVjQ2YTEyIDEyIDAgMCAxIDEyLTEyeiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xMjggMzR2MzZoMzZ6IiBmaWxsPSIjZGJlYWZlIi8+PHBhdGggZD0iTTY0IDEwOGwxNCAxNCAzNC0zNCIgc3Ryb2tlPSIjMTZhMzRhIiBzdHJva2Utd2lkdGg9IjEyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjM2IiBmaWxsPSIjMjU2M2ViIi8+PHBhdGggZD0iTTU2IDM0aDcybDM2IDM2djgwYTEyIDEyIDAgMCAxLTEyIDEySDU2YTEyIDEyIDAgMCAxLTEyLTEyVjQ2YTEyIDEyIDAgMCAxIDEyLTEyeiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xMjggMzR2MzZoMzZ6IiBmaWxsPSIjZGJlYWZlIi8+PHBhdGggZD0iTTY0IDEwOGwxNCAxNCAzNC0zNCIgc3Ryb2tlPSIjMTZhMzRhIiBzdHJva2Utd2lkdGg9IjEyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rgZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#0f172a;--muted:#64748b;--accent:#2563eb;--accent-press:#1d4ed8;--correct:#15803d;--correct-b:#dcfce7;--correct-border:#86efac;--wrong:#b91c1c;--wrong-bg:#fee2e2;--wrong-border:#fca5a5;--border:#e2e8f0;--radius:14px;--shadow:0 1px 2px rgba(15,23,42,.06),0 4px 12px rgba(15,23,42,.04)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh;-webkit-font-smoothing:antialiased}
+.app{max-width:640px;margin:0 auto;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom))}
+.screen{animation:fade .18s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.screen[hidden]{display:none}
+h1{font-size:22px;margin:8px 0 4px}
+h2{font-size:20px;margin:8px 0 12px}
+.muted{color:var(--muted);font-size:14px}
+.btn{display:block;width:100%;padding:14px 16px;font-size:16px;font-weight:600;border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--text);cursor:pointer;font-family:inherit;transition:background .15s,transform .05s,border-color .15s}
+.btn:active{transform:scale(.99)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover:not(:disabled){background:var(--accent-press);border-color:var(--accent-press)}
+.hero{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px}
+.hero h1{margin-top:0}
+.note{margin-top:12px;padding:10px 12px;background:#fef9c3;border:1px solid #fde68a;border-radius:10px;font-size:13px;color:#713f12}
+.quiz-header{margin-bottom:16px}
+.progress{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.progress-bar{height:100%;background:var(--accent);width:0;transition:width .25s ease;border-radius:999px}
+.progress-text{display:flex;justify-content:space-between;font-size:13px;margin-top:6px;color:var(--muted)}
+.question{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px}
+.q-text{margin:0;font-size:16px;font-weight:500}
+.choices{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.choice{display:block;width:100%;text-align:left;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--card);font-size:15px;color:var(--text);cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s;line-height:1.4}
+.choice:disabled{cursor:default}
+.choice.correct{background:var(--correct-bg);border-color:var(--correct-border);color:var(--correct);font-weight:600}
+.choice.wrong{background:var(--wrong-bg);border-color:var(--wrong-border);color:var(--wrong);font-weight:600}
+.choice .badge{display:inline-block;margin-right:8px;font-weight:700;color:var(--muted)}
+.choice.correct .badge{color:var(--correct)}
+.choice.wrong .badge{color:var(--wrong)}
+.feedback{padding:12px 14px;border-radius:10px;margin-bottom:14px;font-size:14px;font-weight:600}
+.feedback.ok{background:var(--correct-bg);color:var(--correct)}
+.feedback.bad{background:var(--wrong-bg);color:var(--wrong)}
+.score{background:var(--card);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;margin-bottom:16px}
+.score-value{font-size:48px;font-weight:800;line-height:1}
+.score-mark{font-size:22px;font-weight:700;margin-top:8px}
+.review{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:8px 0;margin-bottom:16px}
+.review-item{padding:12px 16px;border-bottom:1px solid var(--border);font-size:14px}
+.review-item:last-child{border-bottom:none}
+.review-q{font-weight:600;margin-bottom:6px}
+.review-a{color:var(--muted)}
+.review-a.ok{color:var(--correct)}
+.review-a.bad{color:var(--wrong)}
+.actions{display:flex;gap:10px}
+.actions .btn{flex:1}
+</style>
+</head>
+<body>
+<div class="app">
+  <section class="screen" data-screen="start">
+    <div class="hero">
+      <h1>Зачёт по темам 1.4–1.6</h1>
+      <p class="muted" id="startInfo">Загрузка вопросов…</p>
+    </div>
+    <button class="btn primary" id="startBtn" disabled>Начать тест</button>
+    <div class="note" id="skipNote" hidden></div>
+  </section>
+
+  <section class="screen" data-screen="quiz" hidden>
+    <header class="quiz-header">
+      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-text">
+        <span id="qCounter">1 / 8</span>
+        <span class="muted" id="qTag"></span>
+      </div>
+    </header>
+    <div class="question"><p class="q-text" id="qText"></p></div>
+    <div class="choices" id="choices"></div>
+    <div class="feedback" id="feedback" hidden></div>
+    <button class="btn primary" id="nextBtn" hidden>Далее</button>
+  </section>
+
+  <section class="screen" data-screen="result" hidden>
+    <h2>Результат</h2>
+    <div class="score">
+      <div class="score-value" id="scorePercent">0%</div>
+      <div class="score-mark" id="scoreMark"></div>
+      <div class="muted" id="scoreDetail"></div>
+    </div>
+    <div class="review" id="review"></div>
+    <div class="actions">
+      <button class="btn primary" id="againBtn">Пройти ещё раз</button>
+      <button class="btn" id="homeBtn">На главную</button>
+    </div>
+  </section>
+</div>
+
+<script>
+const CONFIG={perSession:8,shuffleQuestions:true,shuffleChoices:true};
+const LETTERS=['А','Б','В','Г','Д','Е'];
+const state={all:[],skipped:0,session:[],index:0,answered:false,log:[]};
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+
+function show(n){$$('.screen').forEach(el=>el.hidden=el.dataset.screen!==n);window.scrollTo(0,0);}
+function shuffle(a){const r=a.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function firstChild(el,name){if(!el)return null;for(const c of el.children)if(c.tagName===name)return c;return null;}
+
+function parseQuestions(xmlText){
+  const doc=new DOMParser().parseFromString(xmlText,'application/xml');
+  if(doc.querySelector('parsererror'))throw new Error('Ошибка разбора XML');
+  const questions=[];let skipped=0;
+  for(const q of doc.getElementsByTagName('question')){
+    if(q.getAttribute('enabled')==='false')continue;
+    const content=firstChild(q,'content');
+    const qText=content?(firstChild(content,'text')?.getAttribute('value')||''):'';
+    const choicesEl=firstChild(q,'choices');
+    if(!choicesEl||!qText)continue;
+    const choices=[];
+    for(const c of choicesEl.children){
+      if(c.tagName!=='choice')continue;
+      const cc=firstChild(c,'content');
+      const cText=cc?(firstChild(cc,'text')?.getAttribute('value')||''):'';
+      choices.push({text:cText,correct:c.getAttribute('correct')==='true'});
+    }
+    if(!choices.some(c=>c.correct)){skipped++;continue;}
+    questions.push({tag:q.getAttribute('tag'),text:qText,choices});
+  }
+  return {questions,skipped};
+}
+
+async function loadQuestions(){
+  const res=await fetch('test.xml',{cache:'no-cache'});
+  if(!res.ok)throw new Error('Не удалось загрузить test.xml');
+  return parseQuestions(await res.text());
+}
+
+function newSession(){
+  const pool=CONFIG.shuffleQuestions?shuffle(state.all):state.all.slice();
+  const picked=pool.slice(0,Math.min(CONFIG.perSession,pool.length));
+  state.session=picked.map(q=>({tag:q.tag,text:q.text,choices:CONFIG.shuffleChoices?shuffle(q.choices):q.choices.slice()}));
+  state.index=0;state.answered=false;state.log=[];
+}
+
+function renderQuestion(){
+  const q=state.session[state.index];
+  const total=state.session.length;
+  $('#qCounter').textContent=`${state.index+1} / ${total}`;
+  $('#qTag').textContent='№ '+q.tag;
+  $('#progressBar').style.width=`${(state.index/total)*100}%`;
+  $('#qText').textContent=q.text;
+  const box=$('#choices');box.innerHTML='';
+  q.choices.forEach((c,i)=>{
+    const btn=document.createElement('button');
+    btn.type='button';btn.className='choice';
+    btn.innerHTML=`<span class="badge">${LETTERS[i]||(i+1)}.</span>${esc(c.text)}`;
+    btn.addEventListener('click',()=>pickAnswer(i));
+    box.appendChild(btn);
+  });
+  const fb=$('#feedback');fb.hidden=true;fb.className='feedback';fb.textContent='';
+  const next=$('#nextBtn');next.hidden=true;
+  next.textContent=state.index===total-1?'Завершить':'Далее';
+  state.answered=false;show('quiz');
+}
+
+function pickAnswer(idx){
+  if(state.answered)return;
+  state.answered=true;
+  const q=state.session[state.index];
+  const buttons=$$('#choices .choice');
+  const correctIdx=q.choices.findIndex(c=>c.correct);
+  const ok=idx===correctIdx;
+  buttons.forEach((b,i)=>{
+    b.disabled=true;
+    if(q.choices[i].correct)b.classList.add('correct');
+    else if(i===idx)b.classList.add('wrong');
+  });
+  state.log.push({tag:q.tag,text:q.text,chosen:idx,correct:correctIdx,ok});
+  const fb=$('#feedback');fb.hidden=false;
+  fb.className='feedback '+(ok?'ok':'bad');
+  fb.textContent=ok?'✓ Верно':`✗ Неверно. Правильный ответ: ${LETTERS[correctIdx]}`;
+  $('#nextBtn').hidden=false;
+  $('#progressBar').style.width=`${((state.index+1)/state.session.length)*100}%`;
+}
+
+function next(){
+  if(state.index>=state.session.length-1)renderResult();
+  else{state.index++;renderQuestion();}
+}
+
+function renderResult(){
+  const total=state.log.length;
+  const correct=state.log.filter(x=>x.ok).length;
+  const percent=total?Math.round((correct/total)*100):0;
+  $('#scorePercent').textContent=percent+'%';
+  $('#scoreDetail').textContent=`Правильных ответов: ${correct} из ${total}`;
+  let mark,color;
+  if(percent>=90){mark='Отлично (5)';color='var(--correct)';}
+  else if(percent>=80){mark='Хорошо (4)';color='var(--correct)';}
+  else if(percent>=70){mark='Удовлетворительно (3)';color='var(--correct)';}
+  else{mark='Не сдано';color='var(--wrong)';}
+  $('#scoreMark').textContent=mark;
+  $('#scoreMark').style.color=color;
+  const review=$('#review');review.innerHTML='';
+  state.log.forEach((item,i)=>{
+    const div=document.createElement('div');div.className='review-item';
+    const chosen=item.chosen>=0?LETTERS[item.chosen]:'—';
+    const right=LETTERS[item.correct];
+    div.innerHTML=`<div class="review-q">${i+1}. ${esc(item.text)}</div><div class="review-a ${item.ok?'ok':'bad'}">${item.ok?'✓':'✗'} Ваш ответ: ${chosen}. Правильный: ${right}</div>`;
+    review.appendChild(div);
+  });
+  show('result');
+}
+
+async function init(){
+  try{
+    const {questions,skipped}=await loadQuestions();
+    state.all=questions;state.skipped=skipped;
+    $('#startInfo').textContent=`Вопросов в базе: ${questions.length}. В сессии: ${Math.min(CONFIG.perSession,questions.length)}.`;
+    if(skipped>0){
+      const note=$('#skipNote');note.hidden=false;
+      note.textContent=`Внимание: ${skipped} вопрос(ов) без правильного ответа — пропущены.`;
+    }
+    $('#startBtn').disabled=false;
+  }catch(e){
+    $('#startInfo').textContent='Ошибка: '+e.message;
+    console.error(e);
+  }
+}
+
+$('#startBtn').addEventListener('click',()=>{newSession();renderQuestion();});
+$('#nextBtn').addEventListener('click',next);
+$('#againBtn').addEventListener('click',()=>{newSession();renderQuestion();});
+$('#homeBtn').addEventListener('click',()=>show('start'));
+init();
+</script>
+</body>
+</html>
